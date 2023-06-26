@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>IT Career Switch Tasks</title>
+</head>
+<body>
+
+    <header>
+        <h1>ItCareerSwitch Task</h1>
+
+    </header>
+
+    <div class="apiTable">
+        <table>
+            <thead>
+                <tr class = "headers">
+                    <th>API Name</th>
+                    <th>API Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="tabletitles">Earthquake API</th> <!--EarthQuake API-->
+                    <td>
+                        <p class="apiDescription">This API will return details about an earthquake near the given co-ordinates.</p>
+                        <label for="eqNorth">Please enter a Northern co-ordinate: </label>
+                        <input type="text" id="eqNorth" name="earthquakeWest">
+                        <br>
+                        <label for="eqSouth">Southern co-ordinate: </label>
+                        <input type="text" id="eqSouth" name="earthquakeSouth">
+                        <br>
+                        <label for="eqEast">Eastern co-ordinate: </label>
+                        <input type="text" id="eqEast" name="earthquakeEast">
+                        <br>
+                        <label for="eqWest">Western co-ordinate: </label>
+                        <input type="text" id="eqWest" name="earthquakeWest">
+                    </td>
+                    <td><button id="btn">Submit</button></td>
+                </tr>
+
+                <tr>
+                    <th class="tabletitles">TimeZone API</th> <!--TimeZone API-->
+                    <td>
+                        <p class="apiDescription">This TimeZone API will return a timezone for the given latitude and longitude.</p>
+                        <label for="lat1">Please enter a latitude: </label>
+                        <input type="text" id="lat1" name="latitude1">
+                        <br>
+                        <label for="long1">Please enter a longitude: </label>
+                        <input type="text" id="long1" name="longitude1">
+                    </td>
+                    <td><button id="btn1">Submit</button></td>
+                </tr>
+
+                <tr>
+                    <th class="tabletitles">Ocean API</th> <!--Ocean API-->
+                    <td>
+                        <p class="apiDescription">This OceanAPI will return the ocea or sea for the given latitude/longitude.</p>
+                        <label for="lat2">Please enter a latitude: </label>
+                        <input type="text" id="lat2" name="latitude2">
+                        <br>
+                        <label for="long2">Please enter a longitude: </label>
+                        <input type="text" id="long2" name="longitude2">
+                    </td>
+                    <td><button id="btn2">Submit</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+
+    <div class="resultsTable">
+        <table id="secondTable">
+            <thead>
+            <tr id="results"> 
+                <th class="tabletitles">APIs</th>
+                <th class="tabletitles">API Results</th>
+                <tr>
+            </thead>
+            <tbody>       
+                    <th class="tabletitles"><p>Result of Earthquake API call</p></th>
+                    <td>
+                        <p id="eqDate"></p>
+                        <p id="eqDepth"></p>
+                        <p id="eqMagnitude"></p>
+                        <p id="eqLng"></p>
+                        <p id="eqLat"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="tabletitles"><p>Results of Timezone API call</p></th>
+                    <td>
+                        <p id="sunrise"></p>
+                        <p id="sunset"></p>
+                        <p id="country"></p>
+                        <p id="timeZone"></p>
+                        <p id="currentTime"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="tabletitles"><p>Results of Ocean API call</p></th>
+                    <td>
+                        <p id="ocean"></p>
+                    </td>
+                </tr>
+            </tr>
+            </tbody> 
+        </table>
+    </div>
+
+    <script type="application/javascript" src="js/jquery-2.2.3.min.js"></script>
+    <script type="application/javascript" src="js/app.js"></script>
+</body>
+
+<footer>
+
+    
+</footer>
+</html>

@@ -1,0 +1,51 @@
+header {
+    text-align: center;
+    text-decoration: underline;
+}
+
+/*Table Styling*/
+
+table, th, td {
+    border: 1px solid;
+}
+
+table {
+    height: 40px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.headers {
+    width:fit-content;
+}
+
+th {
+    width: fit-content;
+    text-align: center;
+    padding: 50px;
+}
+
+#secondTable {
+    table-layout: fixed;
+}
+
+
+
+
+/* Buttons */
+button {
+    background-color: royalblue;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    padding: 5px 15px;
+    margin:auto;
+    display: flex;
+}
+
+button:focus {
+    background-color:purple;
+    color: white;
+}
