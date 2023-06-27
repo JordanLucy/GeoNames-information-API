@@ -90,7 +90,13 @@ $('#btn2').click(function() {
         success: function(result) {
 
             if (result.status.name == "ok") {
-                $('#ocean').html(`oceanName: ${result['data']['ocean']['name'] ?? "Ocean Not Found"}`);
+
+                if(result['data']['ocean']['name'] === undefined) {
+                    $(`#ocean1`).html(`<p>Error: result['data']['status']['message']`);
+                    return
+                }
+
+                $('#ocean').html(`oceanName: ${result['data']['ocean']['name'] ? result['data']['ocean']['name'] : result['data']['status']['message']}`);
             }
         }, 
         error: function(jqXHR, textStatus, errorThrown) {
