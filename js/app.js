@@ -2,7 +2,7 @@
 $('#btn').click(function() {
 
     $.ajax({ 
-        url: "http://localhost/task/php/getEarthquakeInfo.php",
+        url: "/php/getEarthquakeInfo.php",
         type: 'POST',
         dataType: 'json',
         data: {
@@ -33,7 +33,7 @@ $('#btn').click(function() {
 $('#btn1').click(function() {
 
     $.ajax({
-        url: "http://localhost/task/php/getTimezoneInfo.php",
+        url: "/php/getTimezoneInfo.php",
         type: 'POST',
         dataType: 'json',
         data: {
@@ -62,7 +62,7 @@ $('#btn1').click(function() {
 $('#btn2').click(function() {
 
     $.ajax({
-        url: "http://localhost/task/php/getOceanInfo.php",
+        url: "/php/getOceanInfo.php",
         type: "POST",
         dataType: 'json',
         data: {
