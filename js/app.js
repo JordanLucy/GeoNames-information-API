@@ -18,7 +18,7 @@ $('#btn').click(function() {
             $(`#earthquakeData`).html("");
             
             if (result.status.name == "ok") {
-                if (result['data'][0]['magnitude'] === undefined) {
+                if (result['data'][0] === undefined) {
                     $(`#earthquakeData`).html(`<p>Error: API returned invalid data.</p>`);
                     return
                 }
