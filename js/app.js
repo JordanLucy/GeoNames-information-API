@@ -50,9 +50,9 @@ $('#btn1').click(function() {
                 
                 console.log(result);    
 
-                Object.keys(result['data']).forEach(key => {
+                Object.keys(result.data).forEach(key => {
                     console.log(key);
-                    $(`#timeZoneData `).append(`<p>${key}: ${result['data'][key]}</p>`);
+                    $(`#timeZoneData`).append(`<p>${key}: ${result.data[key]}</p>`);
                   });
 
                 /*$('#sunrise').html(result['data']['sunrise']);
