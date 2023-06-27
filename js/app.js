@@ -12,7 +12,6 @@ $('#btn').click(function() {
             west: $('#eqWest').val()
         },
         success: function(result) {
-            console.log(JSON.stringify(result));
 
             if (result.status.name == "ok") {
                 $('#eqDate').html(result['data']['earthquakes'][0]["datetime"]);
@@ -41,15 +40,25 @@ $('#btn1').click(function() {
             latitude1: $('#lat1').val()
         },
         success: function(result) {
-
-            console.log(JSON.stringify(result));
             
             if (result.status.name == "ok") {
-                $('#sunrise').html(result['data']['sunrise']);
+
+                /*$.map(result['data'], (el) => {
+                    $(`#${el}`.html(el))
+                    console.log(el);
+                })*/
+                
+                console.log(result);    
+
+                Object.keys(result['data']).forEach(key => {
+                    $(`#${[key]}`).html(result['data'][key]);
+                  });
+
+                /*$('#sunrise').html(result['data']['sunrise']);
                 $('#sunset').html(result['data']['sunset']);
                 $('#country').html(result['data']['countryName']);
                 $('#timeZone').html(result['data']['timezoneId']);
-                $('#currentTime').html(result['data']['time']);
+                $('#currentTime').html(result['data']['time']);*/
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -70,8 +79,6 @@ $('#btn2').click(function() {
             latitude2: $('#lat2').val()
         },
         success: function(result) {
-
-            console.log(JSON.stringify(result));
 
             if (result.status.name == "ok") {
                 console.log(result['data']['ocean']);
