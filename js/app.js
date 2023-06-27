@@ -23,7 +23,7 @@ $('#btn').click(function() {
                     return
                 }
                 const wantedKeys = ['datetime', 'depth', 'magnitude','lng','lat'];
-                Object.keys(result['data'][0]).forEach(key => {
+                Object.keys(result['data']['earthquakes'][0]).forEach(key => {
                     if (wantedKeys.includes(key)) {
                         $(`#earthquakeData`).append(`<p>${key}: ${result['data'][key]}</p>`);
                     }
