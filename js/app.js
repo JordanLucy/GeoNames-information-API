@@ -1,4 +1,3 @@
-let p;
 //Earthquake Function
 $('#btn').click(function() {
 
@@ -43,24 +42,12 @@ $('#btn1').click(function() {
         success: function(result) {
             
             if (result.status.name == "ok") {
-
-                /*$.map(result['data'], (el) => {
-                    $(`#${el}`.html(el))
-                    console.log(el);
-                })*/
-                
-                console.log(result);    
-                p = result;
+                const wantedKeys = ['sunrise', 'sunset', 'countryName','timezoneId','time'];
                 Object.keys(result['data']).forEach(key => {
-                    console.log(key);
-                    $(`#timeZoneData`).append(`<p>${key}: ${result['data'][key]}</p>`);
+                    if (wantedKeys.includes(key)) {
+                        $(`#timeZoneData`).append(`<p>${key}: ${result['data'][key]}</p>`);
+                    }
                   });
-
-                /*$('#sunrise').html(result['data']['sunrise']);
-                $('#sunset').html(result['data']['sunset']);
-                $('#country').html(result['data']['countryName']);
-                $('#timeZone').html(result['data']['timezoneId']);
-                $('#currentTime').html(result['data']['time']);*/
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
