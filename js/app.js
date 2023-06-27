@@ -22,6 +22,11 @@ $('#btn').click(function() {
                     $(`#earthquakeData`).html(`<p>Error: API returned invalid data.</p>`);
                     return
                 }
+
+                result['data'].earthquakes.sort(function(a, b) {
+                    return new Date(b.datetime) - new Date(a.datetime);
+                  });
+                
                 const wantedKeys = ['datetime', 'depth', 'magnitude','lng','lat'];
                 Object.keys(result['data']['earthquakes'][0]).forEach(key => {
                     if (wantedKeys.includes(key)) {
