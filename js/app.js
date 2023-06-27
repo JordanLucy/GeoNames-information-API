@@ -15,11 +15,10 @@ $('#btn').click(function() {
         },
         success: function(result) {
 
-                console.log(result);
             $(`#earthquakeData`).html("");
             
             if (result.status.name == "ok") {
-                if (result['data']['magnitude'] === undefined) {
+                if (result['data'] === undefined) {
                     $(`#earthquakeData`).html(`<p>Error: API returned invalid data.</p>`);
                     return
                 }
@@ -98,7 +97,6 @@ $('#btn2').click(function() {
         success: function(result) {
 
             if (result.status.name == "ok") {
-                console.log(result['data']['ocean']);
                 $('#ocean').html(`oceanName: ${result['data']['ocean']['name'] ?? "Ocean Not Found"}`);
             }
         }, 
