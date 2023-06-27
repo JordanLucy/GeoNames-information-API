@@ -22,21 +22,14 @@ $('#btn').click(function() {
                     $(`#earthquakeData`).html(`<p>Error: API returned invalid data.</p>`);
                     return
                 }
-                const earthquakeKeys = ['datetime', 'depth', 'magnitude','lng','lat'];
-                Object.keys(result['data']).forEach(key => {
-                    if (earthquakeKeys.includes(key)) {
+                const wantedKeys = ['datetime', 'depth', 'magnitude','lng','lat'];
+                Object.keys(result['data'][0]).forEach(key => {
+                    if (wantedKeys.includes(key)) {
                         $(`#earthquakeData`).append(`<p>${key}: ${result['data'][key]}</p>`);
                     }
                   });
             }
 
-            /*if (result.status.name == "ok") {
-                $('#eqDate').html(result['data']['earthquakes'][0]["datetime"]);
-                $('#eqDepth').html(result['data']['earthquakes'][0]["depth"]);
-                $('#eqMagnitude').html(result['data']['earthquakes'][0]["magnitude"]);
-                $('#eqLng').html(result['data']['earthquakes'][0]["lng"]);
-                $('#eqLat').html(result['data']['earthquakes'][0]["lat"]);
-            }*/
         },
         error: function(jqXHR, textStatus, errorThrown) {
             $(`#earthquakeData`).html(`<p>Error: Error has occured, please try again later</p>`);
