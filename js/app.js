@@ -1,6 +1,8 @@
 //Earthquake Function
 $('#btn').click(function() {
 
+    $(`#earthquakeData`).html(`<p>Loading...</p>`);
+
     $.ajax({ 
         url: "/php/getEarthquakeInfo.php",
         type: 'POST',
@@ -12,8 +14,6 @@ $('#btn').click(function() {
             west: $('#eqWest').val()
         },
         success: function(result) {
-
-            $(`#earthquakeData`).html(`<p>Loading...</p>`);
 
             $(`#earthquakeData`).html("");
             
@@ -39,6 +39,7 @@ $('#btn').click(function() {
             }*/
         },
         error: function(jqXHR, textStatus, errorThrown) {
+            $(`#earthquakeData`).html(`<p>Error: Error has occured, please try again later</p>`);
             console.log(jqXHR, textStatus, errorThrown);
 
         }
