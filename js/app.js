@@ -79,7 +79,7 @@ $('#btn1').click(function() {
 //Ocean Function
 $('#btn2').click(function() {
 
-    $(`#timeZoneData`).html(`<p>Loading...</p>`);
+    $(`#ocean`).html(`<p>Loading...</p>`);
 
     $.ajax({
         url: "/php/getOceanInfo.php",
