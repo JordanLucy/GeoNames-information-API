@@ -13,13 +13,30 @@ $('#btn').click(function() {
         },
         success: function(result) {
 
+            $(`#earthquakeData`).html(`<p>Loading...</p>`);
+
+            $(`#earthquakeData`).html("");
+            
             if (result.status.name == "ok") {
+                if (result['data']['magnitude'] === undefined) {
+                    $(`#earthquakeData`).html(`<p>Error: API returned invalid data.</p>`);
+                    return
+                }
+                const wantedKeys = ['datetime', 'depth', 'magnitude','lng','lat'];
+                Object.keys(result['data']).forEach(key => {
+                    if (wantedKeys.includes(key)) {
+                        $(`#earthquakeData`).append(`<p>${key}: ${result['data'][key]}</p>`);
+                    }
+                  });
+            }
+
+            /*if (result.status.name == "ok") {
                 $('#eqDate').html(result['data']['earthquakes'][0]["datetime"]);
                 $('#eqDepth').html(result['data']['earthquakes'][0]["depth"]);
                 $('#eqMagnitude').html(result['data']['earthquakes'][0]["magnitude"]);
                 $('#eqLng').html(result['data']['earthquakes'][0]["lng"]);
                 $('#eqLat').html(result['data']['earthquakes'][0]["lat"]);
-            }
+            }*/
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(jqXHR, textStatus, errorThrown);
@@ -31,7 +48,7 @@ $('#btn').click(function() {
 //TimeZone Function
 $('#btn1').click(function() {
 
-    $(`#timeZoneData`).html(`<p>Loading... </p>`);
+    $(`#timeZoneData`).html(`<p>Loading...</p>`);
 
     $.ajax({
         url: "/php/getTimezoneInfo.php",
@@ -47,7 +64,6 @@ $('#btn1').click(function() {
             
             if (result.status.name == "ok") {
                 if (result['data']['countryName'] === undefined) {
-                    //CountryName not found
                     $(`#timeZoneData`).html(`<p>Error: API returned invalid data.</p>`);
                     return
                 }
