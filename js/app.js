@@ -31,6 +31,8 @@ $('#btn').click(function() {
 //TimeZone Function
 $('#btn1').click(function() {
 
+    $(`#timeZoneData`).html(`<p>Loading... </p>`);
+
     $.ajax({
         url: "/php/getTimezoneInfo.php",
         type: 'POST',
@@ -40,8 +42,15 @@ $('#btn1').click(function() {
             latitude1: $('#lat1').val()
         },
         success: function(result) {
+
+            $(`#timeZoneData`).html("");
             
             if (result.status.name == "ok") {
+                if (result['data']['countryName'] === undefined) {
+                    //CountryName not found
+                    $(`#timeZoneData`).html(`<p>Error: API returned invalid data.</p>`);
+                    return
+                }
                 const wantedKeys = ['sunrise', 'sunset', 'countryName','timezoneId','time'];
                 Object.keys(result['data']).forEach(key => {
                     if (wantedKeys.includes(key)) {
@@ -51,6 +60,7 @@ $('#btn1').click(function() {
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
+            $(`#timeZoneData`).html(`<p>An Error has occured, please try again later.</p>`);
             console.log(jqXHR, textStatus, errorThrown);
         }
     });
@@ -71,7 +81,7 @@ $('#btn2').click(function() {
 
             if (result.status.name == "ok") {
                 console.log(result['data']['ocean']);
-                $('#ocean').html(result['data']['ocean']['name']);
+                $('#ocean').html(`oceanName: ${result['data']['ocean']['name'] ?? "Ocean Not Found"}`);
             }
         }, 
         error: function(jqXHR, textStatus, errorThrown) {
