@@ -15,6 +15,7 @@ $('#btn').click(function() {
         },
         success: function(result) {
 
+                console.log(result);
             $(`#earthquakeData`).html("");
             
             if (result.status.name == "ok") {
