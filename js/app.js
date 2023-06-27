@@ -1,3 +1,4 @@
+let p;
 //Earthquake Function
 $('#btn').click(function() {
 
@@ -49,7 +50,7 @@ $('#btn1').click(function() {
                 })*/
                 
                 console.log(result);    
-
+                p = result;
                 Object.keys(result['data']).forEach(key => {
                     console.log(key);
                     $(`#timeZoneData`).append(`<p>${key}: ${result['data'][key]}</p>`);
