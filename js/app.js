@@ -19,14 +19,13 @@ $('#btn').click(function() {
             $(`#earthquakeData`).html("");
             
             if (result.status.name == "ok") {
-                /*
                 if (result['data']['magnitude'] === undefined) {
                     $(`#earthquakeData`).html(`<p>Error: API returned invalid data.</p>`);
                     return
-                }*/
-                const wantedKeys = ['datetime', 'depth', 'magnitude','lng','lat'];
+                }
+                const earthquakeKeys = ['datetime', 'depth', 'magnitude','lng','lat'];
                 Object.keys(result['data']).forEach(key => {
-                    if (wantedKeys.includes(key)) {
+                    if (earthquakeKeys.includes(key)) {
                         $(`#earthquakeData`).append(`<p>${key}: ${result['data'][key]}</p>`);
                     }
                   });
