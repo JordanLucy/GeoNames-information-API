@@ -95,7 +95,7 @@ $('#btn2').click(function() {
 
             if (result.status.name == "ok") {
 
-                if(result['data']['ocean']['name'] === undefined) {
+                if(result['data']['ocean'] === undefined) {
                     $(`#ocean1`).html(`<p>Error: ${result['data']['status']['message']}`);
                     return
                 }
