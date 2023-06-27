@@ -51,7 +51,7 @@ $('#btn1').click(function() {
                 console.log(result);    
 
                 Object.keys(result['data']).forEach(key => {
-                    $(`#timeZoneData`).append(<p>result['data'][key]</p>);
+                    $(`#timeZoneData `).append(`<p>${result['data'][key]}</p>`);
                   });
 
                 /*$('#sunrise').html(result['data']['sunrise']);
