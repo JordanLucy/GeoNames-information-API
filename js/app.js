@@ -79,6 +79,8 @@ $('#btn1').click(function() {
 //Ocean Function
 $('#btn2').click(function() {
 
+    $(`#timeZoneData`).html(`<p>Loading...</p>`);
+
     $.ajax({
         url: "/php/getOceanInfo.php",
         type: "POST",
@@ -88,6 +90,8 @@ $('#btn2').click(function() {
             latitude2: $('#lat2').val()
         },
         success: function(result) {
+
+            $(`#ocean`).html("");
 
             if (result.status.name == "ok") {
 
@@ -100,6 +104,7 @@ $('#btn2').click(function() {
             }
         }, 
         error: function(jqXHR, textStatus, errorThrown) {
+            $(`#ocean`).html(`<p>An Error has occured, please try again later.</p>`);
             console.log(jqXHR, textStatus, errorThrown);
         }
     });
