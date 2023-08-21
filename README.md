@@ -8,3 +8,4 @@ The second will return information about the timezone which is specified by the 
 
 The third will return the name of the ocean that is located by the users latitude and longitude inputs.
 
+For more information on the API's used, vist: https://www.geonames.org/export/ws-overview.html
